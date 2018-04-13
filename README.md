@@ -4,8 +4,8 @@ This is a prototype WebApp Designed to be the easiest way to teacher-student int
 Technologies used on this project:
   - Asp.net Core
   - Razors Pages
-  - SignalR
-  - Youtube developer API
+  - SignalR For Real Time interactions
+  - Youtube Developer API
 
 Feature:
 
