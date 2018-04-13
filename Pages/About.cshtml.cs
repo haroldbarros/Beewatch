@@ -12,7 +12,7 @@ namespace Beewatch.Pages
 
         public void OnGet()
         {
-            Message = "Your application description page.";
+            Message = "Current version: 1.0.1";
         }
     }
 }

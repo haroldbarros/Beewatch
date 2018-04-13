@@ -65,5 +65,33 @@ namespace Beewatch.Hubs
             await Clients.All.SendAsync("SendunMute");
         }
 
+
+        public async Task Backward5()
+        {
+            Console.WriteLine("Backward5");
+            await Clients.All.SendAsync("SendBackward5");
+        }
+
+        public async Task Backward10()
+        {
+            Console.WriteLine("Backward10");
+            await Clients.All.SendAsync("SendBackward10");
+        }
+
+
+        public async Task Forward5()
+        {
+            Console.WriteLine("Forward5");
+            await Clients.All.SendAsync("SendForward5");
+        }
+
+        public async Task Forward10()
+        {
+            Console.WriteLine("Forward10");
+            await Clients.All.SendAsync("SendForward10");
+        }
+
+
+
     }
 }

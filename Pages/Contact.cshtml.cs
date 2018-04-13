@@ -12,7 +12,7 @@ namespace Beewatch.Pages
 
         public void OnGet()
         {
-            Message = "Your contact page.";
+            Message = "Developed by Harold José";
         }
     }
 }

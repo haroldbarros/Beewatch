@@ -10,15 +10,16 @@
     <br>
     ID: <input id="txtId" type="text"/> <button id="btnLoadId" onclick="loadVideoById()">Load ID</button>
     <br>
-    Goto: <input id="txtGotoSecond" type="number" values="0"/> seconds <button id="BtnGotoSecond" onclick="seekTo()">Goto</button>
     <br>
-    <br>
-    <br>
+        <button id="btnBackward10" onclick="Backward10()"><< 10s</button>
+        <button id="btnBackward5" onclick="Backward5()"><< 5s</button>
         <button id="btnPlay" onclick="playVideo()">Play</button>
         <button id="btnPause" onclick="pauseVideo()">Pause</button>
         <button id="btnStop" onclick="stopVideo()">Stop</button>
         <button id="btnMute" onclick="mute()">Mute</button>
         <button id="btnUnMute" onclick="unMute()">UnMute</button>
+        <button id="btnForward5" onclick="Forward5()">5s >></button>
+        <button id="btnForward10" onclick="Forward10()">10s >></button>
     <br>
 
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
@@ -28,6 +29,7 @@
       <input type="range" id="progress-bar" value="0"/>
       <p><span id="duration">0:00</span></p>
     <br>
+
    
 @section Scripts {
       <script src="/lib/signalr/signalr.js"></script>
@@ -37,7 +39,7 @@
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
       var txtId = document.getElementById('txtId');
-      var txtGotoSecond = document.getElementById('txtGotoSecond');
+      //var txtGotoSecond = document.getElementById('txtGotoSecond');
       var lblStatus = document.getElementById('lblStatus');
       var time_update_interval = 0;
       var progressBar = document.getElementById('progress-bar');
@@ -56,9 +58,8 @@
           height: '360',
           width: '640',
           videoId: '',
-          controls:0,
           disablekb:1,
-          autoplay:1,
+          playerVars: { 'autoplay': 1, 'controls': 1 },
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -130,18 +131,54 @@
       player.pauseVideo();
     }
 
+    function Backward5() {
+      console.log('Backward5');
+      connection.send("Backward5");
+      var seconds = player.getCurrentTime();
+      seconds = seconds - 5;
+      var allowSeekAhead = true;
+      player.seekTo(seconds,allowSeekAhead);
+    }
+
+    function Backward10() {
+      console.log('Backward10');
+      connection.send("Backward10");
+      var seconds = player.getCurrentTime();
+      seconds = seconds - 10;
+      var allowSeekAhead = true;
+      player.seekTo(seconds,allowSeekAhead);
+    }
+
+    function Forward5() {
+      console.log('Forward5');
+      connection.send("Forward5");
+      var seconds = player.getCurrentTime();
+      seconds = seconds + 5;
+      var allowSeekAhead = true;
+      player.seekTo(seconds,allowSeekAhead);
+    }
+
+   function Forward10() {
+      console.log('Forward10');
+      connection.send("Forward10");
+      var seconds = player.getCurrentTime();
+      seconds = seconds + 10;
+      var allowSeekAhead = true;
+      player.seekTo(seconds,allowSeekAhead);
+    }
+
     
     function loadVideoById() {
         console.log('loadVideoById');
         var mediaContentID = txtId.value;
-        var startSeconds = txtGotoSecond.value;
+        var startSeconds = 0;//txtGotoSecond.value;
         connection.send("loadVideoById",mediaContentID, startSeconds);
         player.loadVideoById(mediaContentID, startSeconds);
     }
 
     function seekTo() {
       console.log('seekTo');
-      var seconds = txtGotoSecond.value;
+      var seconds = 0;//txtGotoSecond.value;
       var allowSeekAhead = true;
       connection.send("seekTo",seconds);
       player.seekTo(seconds,allowSeekAhead);
@@ -210,7 +247,6 @@
     });
 
 
-
      $('#progress-bar').mousedown(function (e) {
        console.log('mousedown');
         mouseDown = true;
@@ -219,7 +255,7 @@
 
      $('#progress-bar').mouseup(function (e) {
         console.log('mouseup');
-        mouseDown = true;
+        mouseDown = false;
         player.playVideo();
     });
 
@@ -235,13 +271,13 @@
         console.log('startSeconds:'+startSeconds);
 
         txtId.value =  mediaContentID;
-        txtGotoSecond.value = startSeconds;
+        //txtGotoSecond.value = startSeconds;
         player.loadVideoById(mediaContentID, startSeconds);
     });
 
     connection.on("SendseekTo", function (seconds) {
         console.log('SendseekTo');
-        txtGotoSecond.value = seconds;
+        //txtGotoSecond.value = seconds;
         var allowSeekAhead = true;
         player.seekTo(seconds,allowSeekAhead);
     });
@@ -270,5 +306,40 @@
       console.log('SendunMute');
       player.unMute();
     });
+
+    connection.on("SendBackward5", function () {
+      console.log('SendBackward5');
+      var seconds = player.getCurrentTime();
+      seconds = seconds - 5;
+      var allowSeekAhead = true;
+      player.seekTo(seconds,allowSeekAhead);
+    });
+
+    connection.on("SendBackward10", function () {
+      console.log('SendBackward10');
+      var seconds = player.getCurrentTime();
+      seconds = seconds - 10;
+      var allowSeekAhead = true;
+      player.seekTo(seconds,allowSeekAhead);
+    });
+
+    connection.on("SendForward5", function () {
+      console.log('SendForward5');
+      var seconds = player.getCurrentTime();
+      seconds = seconds + 5;
+      var allowSeekAhead = true;
+      player.seekTo(seconds,allowSeekAhead);
+    });
+
+    connection.on("SendForward10", function () {
+      console.log('SendForward10');
+      var seconds = player.getCurrentTime();
+      seconds = seconds + 10;
+      var allowSeekAhead = true;
+      player.seekTo(seconds,allowSeekAhead);
+    });
+
+
+
     </script>
 }    
