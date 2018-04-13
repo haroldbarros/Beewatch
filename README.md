@@ -15,6 +15,6 @@ Feature:
 For Exemple: A english teacher can be start, stop, forward or backward a video on web browser of your student, easing the teaching process when this occurs  remotely.
 
 
-This webapp was released on
+**This webapp was released on**
 
 http://beewatch.azurewebsites.net
