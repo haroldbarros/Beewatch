@@ -6,6 +6,8 @@ Technologies used on this project:
   - Razors Pages
   - SignalR For Real Time interactions
   - Youtube Developer API
+  - Azure Web Sites
+  - GitHub for Continuous Delivery 
 
 Feature:
 
