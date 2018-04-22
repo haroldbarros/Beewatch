@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{F4A4C42B-0D93-4D44-B225-74651BB4DCDA}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Beewatch Status">
+    <Files>
+      <File FileName="Beewatch Status" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Beewatch PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
