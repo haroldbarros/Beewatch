@@ -3,6 +3,20 @@
 @{
     ViewData["Title"] = "About Beewatch";
 }
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-117990199-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->     
+
+
 <h2>@ViewData["Title"]</h2>
 <h3>@Model.Message</h3>
 
@@ -19,6 +33,8 @@ We implementing new features and improvement.</p>
 
 <strong>More technical informations about this project access the source code on:</strong>
 <br/>
-<a href="https://github.com/haroldjose30/Beewatch" target="_blank">hhttps://github.com/haroldjose30/Beewatch</a><br />
+<a href="https://github.com/haroldjose30/Beewatch" target="_blank" onclick="ga('send', 'event', 'link', 'https://github.com/haroldjose30/Beewatch');">
+    https://github.com/haroldjose30/Beewatch
+</a><br />
 
 

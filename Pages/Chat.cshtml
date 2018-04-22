@@ -2,71 +2,10 @@
 @{
 }
 
-<h1>Chat</h1>
+
+<h1>Appears + Beewatch</h1>
+
+<iframe src="https://appear.in/haroldbarros" frameborder="0"  width="1000" height="1200" allowfullscreen=""></iframe>
+<iframe src="VideoPlayer" frameborder="0"  width="1000" height="1200"></iframe>
 
 
-<form id="user-form" action="#">
-    Name: 
-    <input type="text" id="name-textbox" /> 
-    <button id="connect-button" type="button" onclick="activeConnect()">Connect</button>
-    </br>
-</form>
-
-
-<form id="send-form" action="#">
-    Send a message: 
-    <input type="text" id="message-textbox" disabled /> 
-    <button id="send-button" type="submit" disabled>Send</button>
-</form>
-
-<ul id="messages-list">
-</ul>
-
-@section Scripts {
-    <script src="/lib/signalr/signalr.js"></script>
-    <script type="text/javascript">
-        // Bind DOM elements
-        var userForm = document.getElementById("user-form");
-        var sendForm = document.getElementById("send-form");
-        var sendButton = document.getElementById("send-button");
-        var messagesList = document.getElementById("messages-list");
-        var messageTextBox = document.getElementById("message-textbox");
-        var nameTextBox = document.getElementById("name-textbox");
-
-
-        function activeConnect() {
-             var name = nameTextBox.value;
-
-            connection.start().then(function() {
-                messageTextBox.disabled = false;
-                sendButton.disabled = false;
-            });
-           
-        }
-
-        function appendMessage(content) {
-            var li = document.createElement("li");
-            li.innerText = content;
-            messagesList.appendChild(li);
-        }
-
-        var connection = new signalR.HubConnection("/hubs/chat");
-
-        sendForm.addEventListener("submit", function() {
-            var name = nameTextBox.value;
-            var message = messageTextBox.value;
-            messageTextBox.value = "";
-            connection.send("Send",message,name);
-        });
-
-        connection.on("SendMessage", function (sender, message) {
-            appendMessage(sender + ': ' + message);
-        });
-
-        connection.on("SendAction", function (sender, action) {
-            appendMessage(sender + ' ' + action);
-        });
-
-       
-    </script>
-}

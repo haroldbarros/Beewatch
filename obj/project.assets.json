@@ -12857,13 +12857,13 @@
       "projectName": "Beewatch",
       "projectPath": "/Users/haroldjose/Documents/Projects/Beewatch/Beewatch.csproj",
       "packagesPath": "/Users/haroldjose/.nuget/packages/",
-      "outputPath": "/Users/haroldjose/Documents/Projects/Beewatch/obj/",
+      "outputPath": "/Users/haroldjose/Documents/Projects/Beewatch/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/haroldjose/.nuget/NuGet/NuGet.Config"
+        "/Users/haroldjose/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -12885,18 +12885,19 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Microsoft.NETCore.App": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "2.0",
+            "autoReferenced": true
+          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
-            "version": "[2.0.6, )"
+            "version": "2.0.6"
           },
           "Microsoft.AspNetCore.SignalR": {
             "target": "Package",
-            "version": "[1.0.0-preview1-final, )"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "[2.0.0, )",
-            "autoReferenced": true
+            "version": "1.0.0-preview1-final"
           }
         },
         "imports": [

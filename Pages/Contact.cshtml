@@ -3,11 +3,24 @@
 @{
     ViewData["Title"] = "Contacts";
 }
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-117990199-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->     
+
 <h2>@ViewData["Title"]</h2>
 <h3>By Harold José</h3>
 <h5>Professional Developer for Mobile, Web and Desktop enterprise applications</h5>
 <li>
-<a href="http://haroldjose.azurewebsites.net" target="_blank">My Profile</a><br />
+<a href="http://haroldjose.azurewebsites.net" target="_blank" onclick="ga('send', 'event', 'link', 'http://haroldjose.azurewebsites.net');">My Profile</a><br />
 </li>
     <br/>
 
@@ -16,16 +29,16 @@
 <h5>English Teacher</h5>
 
 <li>
-<a href="https://www.linkedin.com/in/barbarablcristovao/" target="_blank">My Linkedin</a><br />
+<a href="https://www.linkedin.com/in/barbarablcristovao/" target="_blank" onclick="ga('send', 'event', 'link', 'https://www.linkedin.com/in/barbarablcristovao/');">My Linkedin</a><br />
 </li>
 <li>
-<a href="https://www.facebook.com/BarbaraCristovao/" target="_blank">My Facebook</a><br />
+<a href="https://www.facebook.com/BarbaraCristovao/" target="_blank" onclick="ga('send', 'event', 'link', 'https://www.facebook.com/BarbaraCristovao/');">My Facebook</a><br />
 </li>
 <br/>
 
 <h3>For Support:</h3>
 <address>
-    <a href="mailto:haroldbarros@gmail.com" target="_blank">haroldbarros@gmail.com</a><br />
+    <a href="mailto:haroldbarros@gmail.com" target="_blank" onclick="ga('send', 'event', 'link', 'mailto:haroldbarros@gmail.com');">haroldbarros@gmail.com</a><br />
     <br />
     Curitiba,PR,Brazil
     

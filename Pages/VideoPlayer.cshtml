@@ -3,6 +3,19 @@
 @{
 }
 
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-117990199-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->      
+
+
     <h1>YouTube Remote Video Player</h1>
     <br>
     Status: <Div id="lblStatus">Desconectado</Div>
@@ -117,18 +130,21 @@
       console.log('playVideo');
       connection.send("playVideo");
       player.playVideo();
+      ga('send', 'event', 'Videos', 'play');
     }
 
     function stopVideo() {
       console.log('stopVideo');
       connection.send("stopVideo");
       player.stopVideo();
+      ga('send', 'event', 'Videos', 'stop');
     }
 
     function pauseVideo() {
       console.log('pauseVideo');
       connection.send("pauseVideo");
       player.pauseVideo();
+      ga('send', 'event', 'Videos', 'pause');
     }
 
     function Backward5() {
@@ -138,6 +154,7 @@
       seconds = seconds - 5;
       var allowSeekAhead = true;
       player.seekTo(seconds,allowSeekAhead);
+      ga('send', 'event', 'Videos', 'Backward5');
     }
 
     function Backward10() {
@@ -147,6 +164,7 @@
       seconds = seconds - 10;
       var allowSeekAhead = true;
       player.seekTo(seconds,allowSeekAhead);
+      ga('send', 'event', 'Videos', 'Backward10');
     }
 
     function Forward5() {
@@ -156,6 +174,7 @@
       seconds = seconds + 5;
       var allowSeekAhead = true;
       player.seekTo(seconds,allowSeekAhead);
+      ga('send', 'event', 'Videos', 'Forward5');
     }
 
    function Forward10() {
@@ -165,6 +184,7 @@
       seconds = seconds + 10;
       var allowSeekAhead = true;
       player.seekTo(seconds,allowSeekAhead);
+      ga('send', 'event', 'Videos', 'Forward10');
     }
 
     
@@ -174,6 +194,7 @@
         var startSeconds = 0;//txtGotoSecond.value;
         connection.send("loadVideoById",mediaContentID, startSeconds);
         player.loadVideoById(mediaContentID, startSeconds);
+        ga('send', 'event', 'Videos', 'loadVideoById');
     }
 
     function seekTo() {
@@ -182,18 +203,21 @@
       var allowSeekAhead = true;
       connection.send("seekTo",seconds);
       player.seekTo(seconds,allowSeekAhead);
+      ga('send', 'event', 'Videos', 'seekTo');
     }
 
     function mute() {
       console.log('mute');
       connection.send("mute");
       player.mute();
+      ga('send', 'event', 'Videos', 'mute');
     }
 
     function unMute() {
       console.log('unMute');
       connection.send("unMute");
       player.unMute();
+      ga('send', 'event', 'Videos', 'unMute');
     }
 
     function setVolume() {
@@ -244,6 +268,7 @@
         var allowSeekAhead = true;
         connection.send("seekTo",seconds);
         player.seekTo(seconds,allowSeekAhead);
+        ga('send', 'event', 'Videos', 'seekTo');
     });
 
 

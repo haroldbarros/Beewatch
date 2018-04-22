@@ -3,6 +3,7 @@
 /Users/haroldjose/Documents/Projects/Beewatch/bin/Debug/netcoreapp2.0/Beewatch.runtimeconfig.dev.json
 /Users/haroldjose/Documents/Projects/Beewatch/bin/Debug/netcoreapp2.0/Beewatch.dll
 /Users/haroldjose/Documents/Projects/Beewatch/bin/Debug/netcoreapp2.0/Beewatch.pdb
+/Users/haroldjose/Documents/Projects/Beewatch/obj/Debug/netcoreapp2.0/Beewatch.csprojResolveAssemblyReference.cache
 /Users/haroldjose/Documents/Projects/Beewatch/obj/Debug/netcoreapp2.0/Beewatch.csproj.CoreCompileInputs.cache
 /Users/haroldjose/Documents/Projects/Beewatch/obj/Debug/netcoreapp2.0/Beewatch.AssemblyInfoInputs.cache
 /Users/haroldjose/Documents/Projects/Beewatch/obj/Debug/netcoreapp2.0/Beewatch.AssemblyInfo.cs
